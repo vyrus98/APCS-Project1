@@ -11,7 +11,7 @@ public class PrimitiveDataExamples
       public void testAdditionInt()
       {
           int testInt = 2+3/4;
-          System.out.println("here it is " + testInt);
+          System.out.println("The sum is " + testInt + "\n");
       }
  
       /**
@@ -20,7 +20,7 @@ public class PrimitiveDataExamples
       public void testAdditionDouble()
       {
           double testDouble = 2+3.0/4;
-          System.out.println("Your double is " + testDouble);
+          System.out.println("Your double is " + testDouble + "\n");
       }
  
       /**
@@ -29,7 +29,7 @@ public class PrimitiveDataExamples
       public void testOrderOfOpp()
       {
           double testOrder = 10-(5+3.0)/4*2;
-          System.out.println("The answer to your testOrder is " + testOrder);
+          System.out.println("The answer to your testOrder is " + testOrder + "\n");
       }
  
       /**
@@ -56,7 +56,7 @@ public class PrimitiveDataExamples
       {
           for (int i=1; i<=100; i++) {
         	  if (i == 100) {
-        		  System.out.print(i);
+        		  System.out.print(i + "\n");
         	  }
         	  else {
         		  System.out.print(i + ", ");
@@ -79,7 +79,7 @@ public class PrimitiveDataExamples
       {
           for (int i=begin; i<=end; i++) {
         	  if (i == end) {
-        		  System.out.print(i);
+        		  System.out.print(i + "\n");
         	  }
         	  else {
         		  System.out.print(i + ", ");
@@ -117,7 +117,7 @@ public class PrimitiveDataExamples
         	  pennies++;
         	  cents -= 1;
           }
-          System.out.println("The least number of coins possible is " + quarters + " quarters, " + dimes + " dimes, " + nickels + " nickels, and " + pennies + " pennies.");
+          System.out.println("The least number of coins possible is " + quarters + " quarters, " + dimes + " dimes, " + nickels + " nickels, and " + pennies + " pennies." + "\n");
       }
  
       /**
@@ -125,9 +125,25 @@ public class PrimitiveDataExamples
       * For example 122 is a self divisor (1 and 2 both evenly go in). Or 128 is a selfDivisor.                   If it has a 0 in it (ie 505), it is NOT a selfDivisor.
       * @param x   the number
       */
-      public void isSelfDivisor(int x)
-      {
-          //your code here (currently it returns true)
+      public void isSelfDivisor(int x) {
+    	  int length = String.valueOf(x).length();
+    	  int chop = x;
+    	  int[] digits = new int[length];
+          for (int i=0; i<length; i++) {
+        	  digits[i] = chop % 10;
+        	  chop /= 10;
+        	  System.out.println("Is " + x + " divisible by " + digits[i] + "?");
+        	  if (digits[i] == 0 || x % digits[i] != 0) {
+        		  System.out.println("No! So " + x + " is not a self-divisor!" + "\n");
+        		  break;
+        	  }
+        	  else if (i < length - 1) {
+        		  System.out.println("Yes! Trying next digit");
+        	  }
+        	  else {
+        		  System.out.println("Yes! Your number, " + x + " is a self-divisor" + "\n");
+        	  }
+          }
  
       }
        
@@ -143,7 +159,7 @@ public class PrimitiveDataExamples
       }      
        
       //main method for Eclipse
-      public static void main(String[] args) 
+      public static void main(String[] args)
       {
             PrimitiveDataExamples p=new PrimitiveDataExamples();
             p.testAdditionInt(); 
@@ -153,7 +169,7 @@ public class PrimitiveDataExamples
             p.printRows();
             p.printRows(1,20,4);
             p.leastNumOfCoins(73);
-         
+            p.isSelfDivisor(505);
       }
  
  
