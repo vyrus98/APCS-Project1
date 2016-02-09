@@ -144,7 +144,6 @@ public class PrimitiveDataExamples
         		  System.out.println("Yes! Your number, " + x + " is a self-divisor" + "\n");
         	  }
           }
- 
       }
        
       /**
@@ -152,11 +151,40 @@ public class PrimitiveDataExamples
       * For example 122 is a self divisor (1 and 2 both evenly go in). Or 128 is a selfDivisor.                   If it has a 0 in it (ie 505), it is NOT a selfDivisor.
       * @param x   the number (which has any number of digits)
       */
-      public void APisSelfDivisor(int x)
-      {
-          //your code here (currently it returns true)
+      public void APisSelfDivisor(int x) {
+        	  int length = String.valueOf(x).length();
+        	  int chop = x;
+        	  int[] digits = new int[length];
+              for (int i=0; i<length; i++) {
+            	  digits[i] = chop % 10;
+            	  chop /= 10;
+            	  System.out.println("Is " + x + " divisible by " + digits[i] + "?");
+            	  if (digits[i] == 0 || x % digits[i] != 0) {
+            		  System.out.println("No! So " + x + " is not a self-divisor!" + "\n");
+            		  break;
+            	  }
+            	  else if (i < length - 1) {
+            		  System.out.println("Yes! Trying next digit");
+            	  }
+            	  else {
+            		  System.out.println("Yes! Your number, " + x + " is a self-divisor" + "\n");
+            	  }
+              }
+          }
  
-      }      
+      public void findMagicNumber() {
+    	  //for (long i=1000000000; i<=9999999999.0; i++) {
+    		  //if (i/1000000000%10 != 0 ) {
+    	  			//if (i/100000000%2 == 0) {
+    	  				
+    	  		//	}
+    			  
+    		//  }
+    	 // }
+    	  long i=1234567890;
+    	  System.out.println(i/1000000000%10);
+    	  System.out.println(i/100000000);
+      }
        
       //main method for Eclipse
       public static void main(String[] args)
@@ -170,6 +198,8 @@ public class PrimitiveDataExamples
             p.printRows(1,20,4);
             p.leastNumOfCoins(73);
             p.isSelfDivisor(505);
+            p.APisSelfDivisor(82412);
+            p.findMagicNumber();
       }
  
  
